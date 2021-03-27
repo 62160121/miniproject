@@ -27,7 +27,7 @@ if (!isset($_SESSION['loggedin'])) {
 
      $sql = "INSERT 
             INTO articles (title, body,authors_id, publish_sts,id) 
-            VALUES ($title, $body , $authors_id  ,$publish_sts,$id)";
+            VALUES ( ?,?,?,?,?)";
     $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("sssss", $title, $body,$authors_id ,  $publish_sts,$id);
     $stmt->execute();
